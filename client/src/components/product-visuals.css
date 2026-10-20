@@ -1,0 +1,38 @@
+.product-mark {
+  display: block;
+  width: 100%;
+  height: 100%;
+  flex: 0 0 auto;
+}
+
+.navigation-shell .navigation-brand .brand-mark.product-brand-mark {
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  border-radius: 11px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.empty-illustration {
+  display: block;
+  flex: 0 0 auto;
+  width: 160px;
+  max-width: 100%;
+  height: 160px;
+  object-fit: contain;
+  background: none;
+}
+
+.empty-icon:has(.empty-illustration) {
+  width: auto;
+  height: auto;
+  margin: 0;
+  border: 0;
+  background: transparent;
+}
+
+@media (max-width: 740px) {
+  .navigation-shell .navigation-brand .brand-mark.product-brand-mark { width: 32px; height: 32px; }
+  .empty-illustration { width: 124px; height: 124px; }
+}

@@ -1,0 +1,170 @@
+.brand-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--border, #dbe2ec);
+  border-radius: 7px;
+  background: var(--surface, #fff);
+  color: var(--text-secondary, #526176);
+  font-size: 12px;
+}
+
+.brand-switcher select {
+  min-width: 90px;
+  max-width: 170px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text-primary, #182334);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.brand-switcher select:focus-visible { outline: 2px solid #2f66e9; outline-offset: 3px; }
+.brand-switcher-label { color: var(--text-muted, #8793a4); }
+
+.brand-management-page { max-width: 1120px; }
+.brand-management-intro { display: flex; align-items: flex-start; gap: 9px; }
+.brand-management-intro svg { flex: 0 0 auto; margin-top: 2px; }
+.brand-management-list { display: grid; gap: 9px; }
+.brand-management-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 16px; border: 1px solid var(--border, #e2e8f0); border-radius: 9px; background: #fff; }
+.brand-management-row.is-current { border-color: #b6cdf7; background: #f7faff; }
+.brand-management-row.is-inactive { background: #f8fafc; }
+.brand-management-main { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1; }
+.brand-management-icon { display: grid; width: 36px; height: 36px; flex: 0 0 auto; place-items: center; border-radius: 9px; color: #315fbe; background: #edf3ff; }
+.brand-management-name { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; min-width: 0; }
+.brand-management-name strong { overflow-wrap: anywhere; color: var(--text-primary, #182334); font-size: 14px; font-weight: 650; }
+.brand-status, .brand-current-tag { display: inline-flex; align-items: center; min-height: 22px; padding: 0 8px; border-radius: 999px; color: #778396; background: #eef1f5; font-size: 11px; white-space: nowrap; }
+.brand-status.is-active { color: #287456; background: #e9f7f0; }
+.brand-current-tag { color: #315fbe; background: #eaf1ff; }
+.brand-management-actions { display: flex; align-items: center; justify-content: flex-end; gap: 4px; flex-wrap: wrap; }
+.brand-deactivate-button { color: #a63d3d; }
+.brand-activate-button { color: #287456; }
+.brand-rename-form { display: flex; align-items: center; gap: 6px; width: min(420px, 100%); }
+.brand-rename-form > div:first-child { flex: 1; min-width: 0; }
+.brand-create-form { max-width: 650px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border, #e5eaf1); }
+.brand-create-controls { display: flex; gap: 8px; }
+.brand-create-controls > div { flex: 1; min-width: 0; }
+.brand-management-error { margin-top: 10px; }
+.brand-management-loading { padding: 20px; color: var(--text-secondary, #64748b); text-align: center; }
+.brand-members-list { display: grid; gap: 8px; }
+.brand-member-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--border, #e2e8f0); border-radius: 8px; }
+.brand-member-icon { display: grid; width: 32px; height: 32px; flex: 0 0 auto; place-items: center; border-radius: 50%; color: #315fbe; background: #edf3ff; }
+.brand-member-name { display: grid; flex: 1; min-width: 0; gap: 2px; }
+.brand-member-name strong { color: var(--text-primary, #182334); font-size: 13px; font-weight: 600; }
+.brand-member-name small { color: var(--text-secondary, #657287); font-size: 12px; }
+.brand-member-actions { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.brand-member-editor { display: grid; gap: 16px; max-width: 700px; margin-top: 18px; padding: 18px; border: 1px solid #dbe5f2; border-radius: 10px; background: #f8faff; }
+.brand-member-editor-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.brand-member-editor-heading h3 { margin: 0; color: var(--text-primary, #182334); font-size: 15px; font-weight: 650; }
+.brand-member-editor-heading p { margin: 5px 0 0; color: var(--text-secondary, #657287); font-size: 12px; line-height: 1.5; }
+.brand-member-selected-name { display: block; margin-top: 7px; color: var(--text-secondary, #657287); font-size: 12px; }
+.brand-member-active-control { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 4px 9px; color: var(--text-primary, #182334); font-size: 13px; font-weight: 550; }
+.brand-member-active-control input { width: 15px; height: 15px; accent-color: #315fbe; }
+.brand-member-active-control small { grid-column: 2; color: var(--text-secondary, #657287); font-size: 12px; font-weight: 400; }
+.brand-member-editor-footer { display: flex; justify-content: flex-end; gap: 8px; padding-top: 10px; border-top: 1px solid #e2e8f0; }
+
+@media (max-width: 720px) {
+  .brand-switcher { gap: 5px; padding: 0 7px; }
+  .brand-switcher-label { display: none; }
+  .brand-switcher select { max-width: 116px; }
+  .brand-management-row { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .brand-management-actions { width: 100%; justify-content: flex-start; }
+  .brand-create-controls { flex-direction: column; }
+  .brand-create-controls button { width: 100%; }
+  .brand-member-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; }
+  .brand-member-actions { grid-column: 1 / -1; justify-content: flex-start; }
+  .brand-member-editor { padding: 14px; }
+}
+
+/* Brand management uses compact rows with clear state and action groups. */
+.brand-management-page {
+  --brand-accent: #3563d8;
+  --brand-accent-soft: #edf3ff;
+  --brand-ink: #1d2939;
+  --brand-muted: #5f6c80;
+  --brand-border: #e4e8ef;
+  max-width: 1200px;
+  width: 100%;
+  margin-inline: auto;
+  gap: 16px;
+}
+.brand-management-page > .page-heading { margin-bottom: 0; }
+.brand-management-page > .page-heading .page-heading-copy h1 { color: var(--brand-ink); font-size: 24px; letter-spacing: -.025em; }
+.brand-management-page > .panel { border-color: var(--brand-border); border-radius: 10px; box-shadow: none; }
+.brand-management-page > .panel > .panel-heading { padding: 17px var(--work-panel-inset, 16px) 14px; }
+.brand-management-page > .panel > :is(.brand-management-list, .brand-members-list, .brand-member-editor) { margin-inline: var(--work-panel-inset, 16px); }
+.brand-management-page > .panel > :is(.brand-management-list, .brand-members-list):last-child { margin-bottom: var(--work-panel-inset, 16px); }
+.brand-management-page > .panel > .brand-create-form { margin-right: var(--work-panel-inset, 16px); margin-bottom: var(--work-panel-inset, 16px); margin-left: var(--work-panel-inset, 16px); }
+.brand-management-page > .panel > .panel-heading h2 { color: var(--brand-ink); font-size: 17px; }
+.brand-management-list { gap: 7px; }
+.brand-management-row {
+  min-height: 68px;
+  padding: 12px 14px;
+  border-color: var(--brand-border);
+  border-radius: 8px;
+  transition: border-color .16s ease, background-color .16s ease;
+}
+.brand-management-row:hover { border-color: #cbd5e1; }
+.brand-management-row.is-current { border-color: #cad8f7; background: #f7f9fe; }
+.brand-management-row.is-inactive { color: #667085; background: #f7f8fa; }
+.brand-management-icon { border-radius: 7px; color: var(--brand-accent); background: var(--brand-accent-soft); }
+.brand-management-name strong { color: var(--brand-ink); font-size: 15px; }
+.brand-status,
+.brand-current-tag { min-height: 22px; padding-inline: 7px; border-radius: 5px; font-size: 11px; }
+.brand-status.is-active { color: #28684f; background: #eaf5ef; }
+.brand-current-tag { color: var(--brand-accent); background: #eaf0ff; }
+.brand-management-actions { gap: 6px; }
+.brand-management-actions .button,
+.brand-member-actions .button { min-height: 36px; border-radius: 6px; }
+.brand-management-actions .button:focus-visible,
+.brand-member-actions .button:focus-visible,
+.brand-member-editor-footer .button:focus-visible { outline: 2px solid var(--brand-accent); outline-offset: 2px; }
+.brand-management-actions .button[data-variant="ghost"]:hover { background: #f1f4f8; }
+.brand-deactivate-button:hover { background: #fff3f1 !important; }
+.brand-activate-button:hover { background: #eef8f2 !important; }
+.brand-rename-form { max-width: 480px; }
+.brand-create-form { max-width: 760px; margin-top: 17px; padding-top: 15px; border-color: var(--brand-border); }
+.brand-create-controls { align-items: center; }
+.brand-create-controls input { min-height: 40px; }
+.brand-management-error { border-radius: 7px; }
+.brand-management-loading { color: var(--brand-muted); }
+.brand-members-list { gap: 6px; }
+.brand-member-row { min-height: 62px; padding: 10px 12px; border-color: var(--brand-border); border-radius: 8px; }
+.brand-member-icon { border-radius: 7px; color: var(--brand-accent); background: var(--brand-accent-soft); }
+.brand-member-name strong { color: var(--brand-ink); font-size: 14px; }
+.brand-member-name small { color: var(--brand-muted); line-height: 1.45; }
+.brand-member-editor { border-color: var(--brand-border); border-radius: 9px; background: #f7f9fc; }
+.brand-member-editor-heading h3 { color: var(--brand-ink); }
+.brand-member-editor-footer { border-color: var(--brand-border); }
+.brand-member-active-control input { accent-color: var(--brand-accent); }
+.brand-management-page .empty-state { border-color: var(--brand-border); }
+
+@media (max-width: 720px) {
+  .brand-management-page { gap: 12px; }
+  .brand-management-page > .page-heading .page-heading-copy h1 { font-size: 21px; }
+  .brand-management-page > .panel > .panel-heading { align-items: flex-start; padding: 14px 14px 12px; }
+  .brand-management-row { min-height: 0; gap: 10px; padding: 12px; }
+  .brand-management-main { align-items: flex-start; }
+  .brand-management-name { gap: 6px; }
+  .brand-management-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .brand-management-actions .button { min-height: 42px; justify-content: center; }
+  .brand-rename-form { width: 100%; }
+  .brand-rename-form > button { min-width: 40px; min-height: 40px; }
+  .brand-create-controls { align-items: stretch; }
+  .brand-create-controls input,
+  .brand-create-controls button { min-height: 44px; }
+  .brand-member-row { grid-template-columns: 32px minmax(0, 1fr); gap: 9px; }
+  .brand-member-row > .brand-status { grid-column: 2; justify-self: start; }
+  .brand-member-actions { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .brand-member-actions .button { min-height: 42px; justify-content: center; }
+  .brand-member-editor { gap: 13px; padding: 13px; }
+  .brand-member-editor-footer .button { min-height: 42px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-management-row { transition: none; }
+}

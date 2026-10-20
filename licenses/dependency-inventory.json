@@ -1,0 +1,360 @@
+[
+  {
+    "name": "@lark-apaas/client-toolkit",
+    "version": "1.2.74",
+    "declared_license": null,
+    "license_files": [
+      "licenses/dependencies/lark-apaas__client-toolkit-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-avatar",
+    "version": "1.2.6",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/radix-ui__react-avatar-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-checkbox",
+    "version": "1.3.11",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/radix-ui__react-checkbox-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-dialog",
+    "version": "1.1.23",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/radix-ui__react-dialog-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-dropdown-menu",
+    "version": "2.1.24",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/radix-ui__react-dropdown-menu-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-popover",
+    "version": "1.1.23",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/radix-ui__react-popover-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-scroll-area",
+    "version": "1.2.18",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/radix-ui__react-scroll-area-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-select",
+    "version": "2.3.7",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/radix-ui__react-select-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-slot",
+    "version": "1.3.3",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/radix-ui__react-slot-LICENSE"
+    ]
+  },
+  {
+    "name": "@radix-ui/react-tooltip",
+    "version": "1.2.16",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/radix-ui__react-tooltip-LICENSE"
+    ]
+  },
+  {
+    "name": "@tailwindcss/typography",
+    "version": "0.5.20",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/tailwindcss__typography-LICENSE"
+    ]
+  },
+  {
+    "name": "@tailwindcss/vite",
+    "version": "4.3.3",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/tailwindcss__vite-LICENSE"
+    ]
+  },
+  {
+    "name": "@tanstack/react-query",
+    "version": "5.102.8",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/tanstack__react-query-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/crypto-js",
+    "version": "4.2.2",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/types__crypto-js-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/node",
+    "version": "22.20.1",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/types__node-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/react",
+    "version": "19.2.18",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/types__react-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/react-dom",
+    "version": "19.2.5",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/types__react-dom-LICENSE"
+    ]
+  },
+  {
+    "name": "@vitejs/plugin-react",
+    "version": "6.1.1",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/vitejs__plugin-react-LICENSE"
+    ]
+  },
+  {
+    "name": "class-variance-authority",
+    "version": "0.7.1",
+    "declared_license": "Apache-2.0",
+    "license_files": [
+      "licenses/dependencies/class-variance-authority-LICENSE"
+    ]
+  },
+  {
+    "name": "clsx",
+    "version": "2.1.1",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/clsx-license"
+    ]
+  },
+  {
+    "name": "cmdk",
+    "version": "1.1.1",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/cmdk-LICENSE.md"
+    ]
+  },
+  {
+    "name": "crypto-js",
+    "version": "4.2.0",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/crypto-js-LICENSE"
+    ]
+  },
+  {
+    "name": "date-fns",
+    "version": "4.4.0",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/date-fns-LICENSE.md"
+    ]
+  },
+  {
+    "name": "lucide-react",
+    "version": "0.577.0",
+    "declared_license": "ISC",
+    "license_files": [
+      "licenses/dependencies/lucide-react-LICENSE"
+    ]
+  },
+  {
+    "name": "next-themes",
+    "version": "0.4.6",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/next-themes-license.md"
+    ]
+  },
+  {
+    "name": "radix-ui",
+    "version": "1.6.7",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/radix-ui-LICENSE"
+    ]
+  },
+  {
+    "name": "react",
+    "version": "19.2.8",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/react-LICENSE"
+    ]
+  },
+  {
+    "name": "react-day-picker",
+    "version": "9.14.0",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/react-day-picker-LICENSE"
+    ]
+  },
+  {
+    "name": "react-dom",
+    "version": "19.2.8",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/react-dom-LICENSE"
+    ]
+  },
+  {
+    "name": "react-error-boundary",
+    "version": "6.1.4",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/react-error-boundary-LICENSE"
+    ]
+  },
+  {
+    "name": "react-router-dom",
+    "version": "7.18.3",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/react-router-dom-LICENSE.md"
+    ]
+  },
+  {
+    "name": "recharts",
+    "version": "2.15.4",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/recharts-LICENSE"
+    ]
+  },
+  {
+    "name": "sonner",
+    "version": "2.0.8",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/sonner-LICENSE.md"
+    ]
+  },
+  {
+    "name": "tailwind-merge",
+    "version": "3.6.0",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/tailwind-merge-LICENSE.md"
+    ]
+  },
+  {
+    "name": "tailwindcss",
+    "version": "4.3.3",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/tailwindcss-LICENSE"
+    ]
+  },
+  {
+    "name": "tw-animate-css",
+    "version": "1.4.0",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/tw-animate-css-LICENSE"
+    ]
+  },
+  {
+    "name": "typescript",
+    "version": "5.9.3",
+    "declared_license": "Apache-2.0",
+    "license_files": [
+      "licenses/dependencies/typescript-LICENSE.txt"
+    ]
+  },
+  {
+    "name": "vite",
+    "version": "8.2.2",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/vite-LICENSE.md"
+    ]
+  },
+  {
+    "name": "zod",
+    "version": "4.5.4",
+    "declared_license": "MIT",
+    "license_files": [
+      "licenses/dependencies/zod-LICENSE"
+    ]
+  },
+  {
+    "name": "@nestjs/common",
+    "version": "10.4.22",
+    "declared_license": "MIT",
+    "optional_integration": true,
+    "license_files": [
+      "licenses/dependencies/nestjs__common-LICENSE"
+    ]
+  },
+  {
+    "name": "@lark-apaas/fullstack-nestjs-core",
+    "version": "1.1.66",
+    "declared_license": "MIT",
+    "optional_integration": true,
+    "license_files": [
+      "licenses/dependencies/lark-apaas__fullstack-nestjs-core-LICENSE"
+    ]
+  },
+  {
+    "name": "drizzle-orm",
+    "version": "0.44.6",
+    "declared_license": "Apache-2.0",
+    "optional_integration": true,
+    "license_files": [
+      "licenses/dependencies/drizzle-orm-LICENSE"
+    ],
+    "license_source": "https://github.com/drizzle-team/drizzle-orm/blob/0.44.6/LICENSE"
+  },
+  {
+    "name": "express",
+    "version": "4.22.2",
+    "declared_license": "MIT",
+    "optional_integration": true,
+    "license_files": [
+      "licenses/dependencies/express-LICENSE"
+    ]
+  },
+  {
+    "name": "@types/express",
+    "version": "5.0.6",
+    "declared_license": "MIT",
+    "optional_integration": false,
+    "license_files": [
+      "licenses/dependencies/types__express-LICENSE"
+    ]
+  }
+]

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>达人助手 · 本地工作台</title>
+    <link rel="stylesheet" href="./ui.css" />
+    <link rel="stylesheet" href="./auto-invite.css" />
+  </head>
+  <body data-diagnostics-surface="app">
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="主导航">
+        <a class="brand" href="#library" aria-label="达人助手工作台">
+          <span class="brand-mark" aria-hidden="true">达</span>
+          <span class="brand-copy"><strong>达人助手</strong><small>本地工作台</small></span>
+        </a>
+        <div class="nav-group-label">工作区</div>
+        <nav class="main-nav" aria-label="工作区导航">
+          <button class="nav-item is-active" type="button" data-view="library" aria-current="page">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M3.5 9h17M9 9v11"/></svg></span><span>达人库</span><span class="nav-count" id="nav-creator-count">0</span>
+          </button>
+          <button class="nav-item" type="button" data-view="capture">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></svg></span><span>采集当前页面</span>
+          </button>
+          <button class="nav-item" type="button" data-view="drafts">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4.5 7 7.5 5.5L19.5 7"/></svg></span><span>邀约草稿</span><span class="nav-count" id="nav-draft-count">0</span>
+          </button>
+          <a class="nav-item auto-invite-nav" href="./auto-invite.html"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12 20 4l-5 16-3.5-6.5L4 12Z"/><path d="m11.5 13.5 5-5"/></svg></span><span>自动邀约</span></a>
+          <button class="nav-item" type="button" data-view="presets">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5h12v15l-6-3.8-6 3.8z"/></svg></span><span>筛选书签</span>
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="local-state-icon" aria-hidden="true">⌂</div>
+          <div><strong>本地数据</strong><span>保存在此浏览器</span></div>
+          <span class="local-dot" aria-label="本地模式"></span>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>工作区</span><span aria-hidden="true">/</span><strong id="breadcrumb-current">达人库</strong></div>
+          <div class="topbar-right"><span class="privacy-pill"><span aria-hidden="true">●</span> 本地收录</span><button class="button button-quiet button-small diagnostics-export-button" id="diagnostics-export-button" type="button" title="导出错误日志">导出错误日志</button><button class="avatar-button" type="button" id="owner-chip" aria-label="当前负责人">我</button></div>
+        </header>
+
+        <div class="content-area">
+          <section class="view is-active" id="view-library" aria-labelledby="library-title">
+            <div class="page-heading">
+              <div><p class="eyebrow">CREATOR CRM</p><h1 id="library-title">达人库</h1><p class="page-description">集中查看本地收录的达人资料与跟进阶段。</p></div>
+              <div class="heading-actions"><button class="button button-secondary" id="backup-button" type="button">导出 JSON 备份</button><button class="button button-primary" id="add-creator-button" type="button"><span aria-hidden="true">＋</span> 新建达人</button></div>
+            </div>
+
+            <section class="summary-strip" aria-label="达人库概况">
+              <div class="summary-item"><span>本地达人</span><strong id="summary-total">0</strong></div>
+              <div class="summary-item"><span>未跟进</span><strong id="summary-untracked">0</strong></div>
+              <div class="summary-item"><span>已合作</span><strong id="summary-partnered">0</strong></div>
+              <div class="summary-note"><span class="status-dot"></span><span>数据仅存于本地浏览器，可随时导出备份。</span></div>
+            </section>
+
+            <section class="filter-panel" aria-label="筛选达人">
+              <label class="field search-field"><span>搜索达人</span><input id="creator-search" type="search" placeholder="姓名、账号 ID、联系方式、标签" autocomplete="off" /></label>
+              <label class="field"><span>平台</span><select id="platform-filter"><option value="all">全部平台</option><option value="douyin">抖音</option><option value="kuaishou">快手</option><option value="xiaohongshu">小红书</option><option value="weixin">视频号</option></select></label>
+              <label class="field"><span>跟进阶段</span><select id="stage-filter"><option value="all">全部阶段</option><option>未跟进</option><option>已联系</option><option>有意向</option><option>已寄样</option><option>已合作</option><option>暂不合作</option></select></label>
+              <button class="button button-quiet filter-reset" id="reset-filters" type="button">重置</button>
+            </section>
+
+            <section class="table-panel" aria-labelledby="creator-table-heading">
+              <div class="table-toolbar">
+                <div><h2 id="creator-table-heading">达人记录</h2><p id="creator-result-count" aria-live="polite">0 位达人</p></div>
+                <div class="table-toolbar-actions"><label class="button button-secondary import-button" for="import-json-input">导入并合并 JSON</label><input class="visually-hidden" id="import-json-input" type="file" accept="application/json,.json" /><button class="button button-secondary" id="export-csv-button" type="button">导出 CSV</button></div>
+              </div>
+              <div class="bulk-bar" id="library-bulk-bar" hidden>
+                <span><strong id="library-selection-count">0</strong> 项已选择</span>
+                <div><button class="button button-quiet" id="clear-library-selection" type="button">清除选择</button><button class="button button-secondary" id="bulk-draft-button" type="button">生成邀约草稿</button><button class="button button-secondary" id="bulk-csv-button" type="button">导出所选 CSV</button></div>
+              </div>
+              <div class="table-scroll" id="creator-table-wrap">
+                <table class="data-table">
+                  <caption class="visually-hidden">本地达人资料和跟进阶段</caption>
+                  <thead><tr><th class="check-column"><label class="table-select-target"><input id="select-visible-creators" type="checkbox" aria-label="选择本页全部达人" /></label></th><th>达人</th><th>平台</th><th>跟进阶段</th><th>联系方式</th><th>负责人</th><th>标签</th><th>更新时间</th><th><span class="visually-hidden">操作</span></th></tr></thead>
+                  <tbody id="creator-rows"></tbody>
+                </table>
+              </div>
+              <div class="empty-state" id="creator-empty" hidden>
+                <div class="empty-illustration" aria-hidden="true"><span>＋</span></div>
+                <h3 id="creator-empty-title">还没有本地收录的达人</h3>
+                <p id="creator-empty-description">从支持的平台页面采集候选达人，或手工添加一条资料。收录前可先检查候选名单。</p>
+                <div class="empty-actions"><button class="button button-primary" type="button" data-go-view="capture">采集当前页面</button><button class="button button-secondary" id="empty-add-creator-button" type="button">手工添加</button></div>
+              </div>
+              <div class="pagination" id="creator-pagination" hidden>
+                <span id="page-summary">显示 0–0，共 0 条</span>
+                <div><button class="button button-secondary button-small" type="button" id="previous-page">上一页</button><span id="page-number" aria-live="polite">第 1 页</span><button class="button button-secondary button-small" type="button" id="next-page">下一页</button></div>
+              </div>
+            </section>
+          </section>
+
+          <section class="view" id="view-capture" aria-labelledby="capture-title" hidden>
+            <div class="page-heading">
+              <div><p class="eyebrow">COLLECT</p><h1 id="capture-title">采集当前页面</h1><p class="page-description">选择一个已打开的平台标签页，检查候选资料后再决定是否收录。</p></div>
+              <span class="privacy-pill"><span aria-hidden="true">●</span> 仅本地收录</span>
+            </div>
+            <div class="capture-receipt" role="note"><span class="receipt-icon" aria-hidden="true">i</span><div><strong>先预览，再本地收录</strong><p>读取此标签页本次加载的达人资料，核对候选后再选择收录到本地达人库。</p></div></div>
+            <section class="capture-panel">
+              <div class="capture-controls">
+                <label class="field tab-select-field"><span>选择平台标签页</span><select id="capture-tab-select"><option value="">正在读取已打开的标签页…</option></select></label>
+                <button class="button button-primary" type="button" id="read-capture-button">读取当前页面</button>
+                <button class="button button-secondary" type="button" id="refresh-tabs-button">刷新标签页</button>
+              </div>
+              <div class="capture-source" id="capture-source" hidden>
+                <span class="source-platform-mark" id="capture-platform-mark">抖</span>
+                <div><strong id="capture-source-title">—</strong><span id="capture-source-url">—</span></div>
+                <span class="source-tag" id="capture-source-platform">—</span>
+              </div>
+              <div class="capture-feedback" id="capture-feedback" role="status" aria-live="polite"></div>
+              <div class="capture-results" id="capture-results" hidden>
+                <div class="capture-result-heading"><div><h2>候选达人</h2><p id="capture-result-count">0 位候选</p></div><div><button class="button button-quiet" type="button" id="select-all-candidates">全选</button><button class="button button-quiet" type="button" id="clear-candidates">清除</button><button class="button button-primary" type="button" id="save-candidates-button" disabled><span id="save-candidate-label">收录所选</span><span id="selected-candidate-count">0</span> 位</button></div></div>
+                <div class="candidate-list" id="candidate-list"></div>
+                <div class="capture-save-receipt" id="capture-save-receipt" hidden role="status"></div>
+              </div>
+              <div class="capture-empty" id="capture-empty"><span aria-hidden="true">↗</span><strong>先选择一个平台标签页</strong><p>读取后会显示本页识别到的候选；如果当前页不受支持，会告诉你原因。</p></div>
+            </section>
+            <section class="bookmark-save-panel">
+              <div><span class="section-icon" aria-hidden="true">☆</span><div><h2>保存当前筛选书签</h2><p>保存刚才选择的平台页面地址，稍后可回到该页面继续筛选。</p></div></div>
+              <div class="bookmark-save-form"><label class="field"><span>书签名称</span><input id="preset-name-input" type="text" maxlength="80" placeholder="例如：美妆达人筛选" /></label><button class="button button-secondary" type="button" id="save-preset-button">保存当前页面</button></div>
+              <div class="preset-save-receipt" id="preset-save-receipt" hidden role="status"><strong id="preset-save-receipt-title"></strong><code id="preset-save-receipt-address"></code></div>
+            </section>
+          </section>
+
+          <section class="view" id="view-drafts" aria-labelledby="drafts-title" hidden>
+            <div class="page-heading"><div><p class="eyebrow">OUTREACH</p><h1 id="drafts-title">邀约草稿</h1><p class="page-description">生成本地文案，复制后由你在平台内确认和发送。</p></div></div>
+            <div class="manual-action-note"><span class="receipt-icon" aria-hidden="true">i</span><p><strong>这里只管理草稿。</strong>复制、打开平台和手工完成都由你操作；“已完成”表示你手动标记完成，不代表平台已发送或验证。</p></div>
+            <section class="template-panel">
+              <div class="section-heading"><div><h2>批量生成</h2><p>模板变量：<code>{name}</code>（达人名称）、<code>{platform}</code>（平台名称）。</p></div><button class="button button-quiet" type="button" id="select-all-draft-creators">选择全部达人</button></div>
+              <label class="field template-field"><span>邀约模板</span><textarea id="draft-template" rows="4" maxlength="3000" placeholder="你好 {name}，关注到你在{platform}分享的内容，想和你聊聊合作。">你好 {name}，关注到你在{platform}分享的内容，想和你聊聊合作。</textarea></label>
+              <label class="field draft-creator-search"><span>搜索达人</span><input id="draft-creator-search" type="search" placeholder="按名称、平台或标签查找" autocomplete="off" /></label>
+              <div class="draft-creator-picker" id="draft-creator-picker">
+                <div class="draft-creator-list" id="draft-creator-list"></div>
+                <div class="pagination draft-picker-pagination" id="draft-picker-pagination" hidden><span id="draft-picker-summary">0 位达人</span><div><button class="button button-secondary button-small" type="button" id="draft-picker-previous">上一页</button><span id="draft-picker-page-number">第 1 页</span><button class="button button-secondary button-small" type="button" id="draft-picker-next">下一页</button></div></div>
+              </div>
+              <div class="draft-generator-footer"><span id="draft-selection-label">选择达人后生成草稿</span><button class="button button-primary" type="button" id="generate-drafts-button" disabled>为所选达人生成草稿</button></div>
+            </section>
+            <section class="drafts-list-panel">
+              <div class="section-heading"><div><h2>草稿记录</h2><p id="draft-result-count">0 条草稿</p></div><label class="field compact-field"><span>状态筛选</span><select id="draft-status-filter"><option value="all">全部状态</option><option value="pending">待处理</option><option value="copied">已复制</option><option value="done">手工标记完成</option><option value="skipped">已跳过</option></select></label></div>
+              <div class="draft-list" id="draft-list"></div>
+              <div class="empty-state compact-empty" id="draft-empty" hidden><div class="empty-illustration" aria-hidden="true">✉</div><h3>还没有邀约草稿</h3><p>勾选达人并填写模板，批量生成本地草稿。</p><button class="button button-secondary" type="button" data-go-view="library">选择达人</button></div>
+            </section>
+          </section>
+
+          <section class="view" id="view-presets" aria-labelledby="presets-title" hidden>
+            <div class="page-heading"><div><p class="eyebrow">SAVED FILTERS</p><h1 id="presets-title">筛选书签</h1><p class="page-description">保存平台页面地址，方便回到常用的筛选入口。</p></div><button class="button button-secondary" type="button" data-go-view="capture">去保存当前页面</button></div>
+            <div class="bookmark-note"><span aria-hidden="true">i</span><p>书签只保存平台页面地址和地址参数。平台可能不保留表单内的筛选条件；打开后请在平台页面确认。</p></div>
+            <section class="preset-list-panel"><div class="section-heading"><div><h2>已保存的书签</h2><p id="preset-result-count">0 个书签</p></div></div><div class="preset-list" id="preset-list"></div><div class="empty-state compact-empty" id="preset-empty" hidden><div class="empty-illustration" aria-hidden="true">☆</div><h3>还没有筛选书签</h3><p>从一个支持的平台筛选页保存地址，之后可以一键打开。</p><button class="button button-primary" type="button" data-go-view="capture">选择平台页面</button></div></section>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+    <dialog class="creator-dialog" id="creator-dialog" aria-labelledby="creator-dialog-title">
+      <form id="creator-form" method="dialog" novalidate>
+        <div class="dialog-heading"><div><p class="eyebrow">CREATOR PROFILE</p><h2 id="creator-dialog-title">新建达人</h2><p id="creator-dialog-description">信息保存在本地达人库。</p></div><button class="icon-button" type="button" id="close-creator-dialog" aria-label="关闭对话框">×</button></div>
+        <div class="form-grid">
+          <label class="field"><span>平台 <b aria-hidden="true">*</b></span><select id="creator-platform" required><option value="douyin">抖音</option><option value="kuaishou">快手</option><option value="xiaohongshu">小红书</option><option value="weixin">视频号</option></select></label>
+          <label class="field"><span>达人名称 <b aria-hidden="true">*</b></span><input id="creator-name" type="text" maxlength="120" required /></label>
+          <label class="field"><span>平台账号 ID <b aria-hidden="true">*</b></span><input id="creator-external-id" type="text" maxlength="180" required autocomplete="off" /><small>使用平台账号 ID，便于合并重复记录。</small></label>
+          <label class="field"><span>主页链接</span><input id="creator-profile-url" type="url" maxlength="1000" placeholder="https://" /></label>
+          <label class="field"><span>手机号</span><input id="creator-phone" type="tel" maxlength="80" autocomplete="tel" /></label>
+          <label class="field"><span>微信号</span><input id="creator-wechat" type="text" maxlength="120" autocomplete="off" /></label>
+          <label class="field"><span>邮箱</span><input id="creator-email" type="email" maxlength="160" autocomplete="email" /></label>
+          <label class="field"><span>跟进阶段</span><select id="creator-stage"><option>未跟进</option><option>已联系</option><option>有意向</option><option>已寄样</option><option>已合作</option><option>暂不合作</option></select></label>
+          <label class="field"><span>负责人</span><input id="creator-owner" type="text" maxlength="120" /></label>
+          <label class="field full-field"><span>标签</span><input id="creator-tags" type="text" maxlength="500" placeholder="用逗号分隔，例如：美妆，测评" /><small>多个标签使用逗号分隔。</small></label>
+          <label class="field full-field"><span>备注</span><textarea id="creator-note" rows="3" maxlength="3000" placeholder="记录跟进背景、合作偏好或下一步。"></textarea></label>
+        </div>
+        <p class="form-error" id="creator-form-error" role="alert" hidden></p>
+        <div class="dialog-actions"><button class="button button-secondary" type="button" id="cancel-creator-dialog">取消</button><button class="button button-primary" type="submit" id="save-creator-button">保存达人</button></div>
+      </form>
+    </dialog>
+
+    <script type="module" src="./app.mjs"></script>
+  </body>
+</html>

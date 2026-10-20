@@ -1,0 +1,12 @@
+{
+  "name": "creator-assistant-extension",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": "xiaoyu312",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

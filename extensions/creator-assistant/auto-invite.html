@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>自动邀约 · 达人助手</title>
+    <link rel="stylesheet" href="./ui.css" />
+    <link rel="stylesheet" href="./auto-invite.css" />
+  </head>
+  <body class="auto-invite-body" data-diagnostics-surface="auto-invite">
+    <div class="app-shell invite-shell">
+      <aside class="sidebar invite-sidebar" aria-label="主导航">
+        <a class="brand" href="./app.html" aria-label="返回达人助手工作台"><span class="brand-mark" aria-hidden="true">达</span><span class="brand-copy"><strong>达人助手</strong><small>本地工作台</small></span></a>
+        <div class="nav-group-label">工作区</div>
+        <nav class="main-nav" aria-label="工作区导航">
+          <a class="nav-item" href="./app.html"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M3.5 9h17M9 9v11"/></svg></span><span>达人工作台</span></a>
+          <a class="nav-item is-active" href="./auto-invite.html" aria-current="page"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12 20 4l-5 16-3.5-6.5L4 12Z"/><path d="m11.5 13.5 5-5"/></svg></span><span>自动邀约</span></a>
+        </nav>
+        <div class="sidebar-bottom"><div class="local-state-icon" aria-hidden="true">⌂</div><div><strong>本地任务</strong><span>记录保存在当前浏览器</span></div><span class="local-dot" aria-label="本地模式"></span></div>
+      </aside>
+
+      <main class="main-area invite-main">
+        <header class="topbar"><div class="breadcrumbs"><a href="./app.html">工作区</a><span aria-hidden="true">/</span><strong>自动邀约</strong></div><div class="topbar-right"><span class="privacy-pill"><span aria-hidden="true">●</span> 本地队列</span><button class="button button-quiet button-small diagnostics-export-button" id="diagnostics-export-button" type="button" title="导出错误日志">导出错误日志</button><a class="avatar-button invite-back-link" href="./app.html" aria-label="返回达人库">返</a></div></header>
+
+        <div class="content-area invite-content">
+          <div class="invite-page-heading"><div><p class="eyebrow">PLATFORM INVITATIONS</p><h1>自动邀约</h1><p class="page-description">选达人，设置官方邀约内容和商品，然后开始邀约。</p></div></div>
+          <div class="invite-global-alert" id="invite-global-alert" hidden role="alert"></div>
+
+          <nav class="invite-steps" aria-label="邀约步骤">
+            <div class="invite-step-indicator is-current" id="step-indicator-1"><span>1</span><strong>选达人</strong></div><i aria-hidden="true"></i>
+            <div class="invite-step-indicator" id="step-indicator-2"><span>2</span><strong>设置邀约</strong></div><i aria-hidden="true"></i>
+            <div class="invite-step-indicator" id="step-indicator-3"><span>3</span><strong>进度结果</strong></div>
+          </nav>
+
+          <section class="invite-workflow" aria-label="创建自动邀约">
+            <section class="direct-step" id="step-creators" aria-labelledby="recipients-title">
+              <div class="direct-step-heading"><span class="step-number">1</span><div><h2 id="recipients-title">选择达人</h2><p>先选平台，再从本地达人库选人；也可以读取当前平台页并收录。</p></div><span class="selection-pill"><strong id="recipient-selection-count">0</strong> 位</span></div>
+              <div class="recipient-source-row">
+                <label class="field"><span>平台</span><select id="invite-platform"><option value="">选择平台</option><option value="douyin">抖音</option><option value="weixin">视频号</option></select></label>
+                <label class="field recipient-tab-field"><span>已打开的官方平台页</span><select id="invite-tab-select" disabled><option value="">先选择平台</option></select></label>
+                <button class="button button-secondary" id="refresh-invite-tabs" type="button">刷新标签页</button>
+                <button class="button button-quiet" id="capture-current-page" type="button" disabled>读取当前页</button>
+              </div>
+              <div class="step-feedback" id="capture-feedback" role="status" aria-live="polite">选择平台和标签页后，可读取当前页候选；读取不会向平台发送邀请。</div>
+              <div class="recipient-toolbar">
+                <label class="field recipient-search-field"><span>达人库搜索</span><input id="recipient-search" type="search" placeholder="姓名、账号 ID 或标签" autocomplete="off" /></label>
+                <label class="field recipient-filter-field"><span>跟进阶段</span><select id="recipient-stage-filter"><option value="all">全部阶段</option><option value="未跟进">未跟进</option><option value="已联系">已联系</option><option value="有意向">有意向</option><option value="已寄样">已寄样</option><option value="已合作">已合作</option><option value="暂不合作">暂不合作</option></select></label>
+                <label class="field recipient-filter-field"><span>邀请资料</span><select id="recipient-readiness-filter"><option value="all">全部资料</option><option value="ready">资料完整</option><option value="missing">缺少必需资料</option></select></label>
+                <span class="recipient-platform-hint" id="recipient-platform-hint">请选择平台。</span>
+              </div>
+              <div class="recipient-list-actions">
+                <span id="recipient-visible-summary">本页 0 位 · 已选 0 / 50 位</span>
+                <div><button class="button button-secondary button-small" id="select-current-page" type="button" disabled>选中本页</button><button class="button button-quiet button-small" id="clear-current-page" type="button" disabled>取消本页</button><button class="button button-quiet button-small" id="clear-recipient-selection" type="button" disabled>清空已选</button></div>
+              </div>
+              <div class="recipient-table" id="recipient-table">
+                <div class="recipient-table-head"><span>达人</span><span>平台账号</span><span>阶段</span></div>
+                <div class="recipient-list" id="recipient-list"></div>
+                <div class="recipient-empty" id="recipient-empty"><strong id="recipient-empty-title">选择平台以查看达人</strong><span id="recipient-empty-copy">本地达人库为空时，可从当前平台页收录。</span></div>
+                <div class="recipient-pagination" id="recipient-pagination" hidden><span id="recipient-page-summary">0 位</span><div><button class="button button-secondary button-small" id="recipient-previous" type="button">上一页</button><span id="recipient-page-number">第 1 页</span><button class="button button-secondary button-small" id="recipient-next" type="button">下一页</button></div></div>
+              </div>
+              <div class="step-actions"><span>最多选择 50 位达人。</span><button class="button button-primary" id="continue-settings" type="button" disabled>下一步 · 设置邀约</button></div>
+            </section>
+
+            <section class="direct-step" id="step-settings" aria-labelledby="settings-title" hidden>
+              <div class="direct-step-heading"><span class="step-number">2</span><div><h2 id="settings-title">设置邀约</h2><p id="settings-recipient-label">—</p></div><button class="button button-quiet button-small step-back-button" id="back-to-creators" type="button">返回选达人</button></div>
+              <div class="step-feedback" id="options-status" role="status" aria-live="polite">正在读取官方邀约设置…</div>
+              <div class="prepared-job-note" id="prepared-job-note" hidden role="status">已有一份待开始的邀约任务。点击下方按钮即可开始。</div>
+              <button class="button button-secondary button-small retry-options-button" id="retry-options" type="button" hidden>重新读取官方设置</button>
+              <section class="invite-template-tools" id="invite-template-tools" aria-labelledby="invite-template-title">
+                <div class="template-tools-heading"><div><h3 id="invite-template-title">邀约模板</h3><span>仅保存在此浏览器，不包含在达人库备份中</span></div><button class="button button-quiet button-small" id="reload-invite-templates" type="button">刷新</button></div>
+                <div class="template-tools-row">
+                  <label class="field"><span>已保存模板</span><select id="invite-template-select"><option value="">选择模板</option></select></label>
+                  <button class="button button-secondary button-small" id="apply-invite-template" type="button" disabled>应用</button>
+                  <button class="button button-quiet button-small" id="delete-invite-template" type="button" disabled>删除</button>
+                </div>
+                <div class="template-save-row">
+                  <label class="field"><span>模板名称</span><input id="invite-template-name" type="text" maxlength="80" placeholder="输入模板名称" autocomplete="off" /></label>
+                  <label class="template-contact-optin"><input id="template-include-contact" type="checkbox" /><span>同时保存联系人信息</span></label>
+                  <button class="button button-secondary button-small" id="save-invite-template" type="button" disabled>保存模板</button>
+                </div>
+                <div class="template-feedback" id="invite-template-feedback" hidden role="status" aria-live="polite"></div>
+              </section>
+              <div class="settings-form" id="settings-form" hidden>
+                <div class="native-mode-summary" id="native-mode-summary"></div>
+                <div class="message-field" id="words-message-field" hidden><label class="field"><span>邀约话术</span><textarea id="invite-message" rows="4" maxlength="500" placeholder="填写邀约内容…"></textarea></label><span class="field-meta"><span id="message-limit-label">最多 500 字</span><span id="message-count">0 / 500</span></span></div>
+                <div class="category-mode-note" id="category-mode-note" hidden><span class="info-mark" aria-hidden="true">i</span><span>当前平台使用类目邀请，请选择主营类目和合作权益。</span></div>
+                <div class="option-groups" id="category-right-groups" hidden>
+                  <fieldset class="option-fieldset"><legend>主营类目</legend><div class="option-check-list" id="category-list"></div><p class="field-hint" id="category-empty">官方页面没有提供可选类目。</p></fieldset>
+                  <fieldset class="option-fieldset"><legend>合作权益</legend><div class="option-check-list" id="right-list"></div><p class="field-hint" id="right-empty">官方页面没有提供可选权益。</p></fieldset>
+                </div>
+
+                <div class="contact-fields" id="contact-fields">
+                  <label class="field" id="contact-name-field"><span>联系人</span><input id="contact-name" type="text" maxlength="120" autocomplete="name" placeholder="填写联系人姓名" /></label>
+                  <label class="field"><span>手机号 <small id="phone-requirement"></small></span><input id="contact-phone" type="tel" maxlength="40" inputmode="tel" autocomplete="tel" placeholder="填写手机号" /></label>
+                  <label class="field"><span>微信号 <small id="wechat-requirement"></small></span><input id="contact-wechat" type="text" maxlength="80" autocomplete="off" placeholder="填写微信号" /></label>
+                </div>
+
+                <div class="product-section">
+                  <div class="subsection-heading"><div><h3>选择商品</h3><p id="product-count">已选 0 项</p></div><span id="product-limit-note">至少 1 项</span></div>
+                  <div class="product-toolbar"><label class="field"><span>搜索官方商品</span><input id="product-search" type="search" placeholder="搜索商品名称" autocomplete="off" /></label><span id="product-account-label" class="product-account-label"></span></div>
+                  <div class="product-list" id="product-list"></div>
+                  <div class="product-empty" id="product-empty" hidden><strong id="product-empty-title">没有可选商品</strong><span id="product-empty-copy">请检查所选官方店铺的商品状态。</span></div>
+                  <div class="product-pagination" id="product-pagination" hidden><span id="product-page-label">当前页</span><div><button class="button button-secondary button-small" id="product-previous" type="button" disabled>上一页</button><button class="button button-secondary button-small" id="product-next" type="button" disabled>下一页</button></div></div>
+                </div>
+
+                <div class="settings-footer">
+                  <label class="field interval-field"><span>发送间隔</span><span class="interval-wrap"><input id="invite-interval" type="number" min="30" max="300" step="1" value="30" inputmode="numeric" /><span>秒</span></span></label>
+                  <span class="field-hint">每位达人之间间隔 30–300 秒。</span>
+                </div>
+              </div>
+              <details class="invite-summary-details" id="start-summary-details" hidden><summary>查看本次邀约摘要</summary><div class="inline-summary" id="start-summary"></div></details>
+              <div class="start-error" id="start-error" hidden role="alert"></div>
+              <div class="step-actions settings-actions"><span id="settings-validation-hint">填写话术、联系人并选择商品。</span><button class="button button-primary start-invite-button" id="start-invite-button" type="button" disabled>开始邀约</button></div>
+            </section>
+
+            <section class="direct-step" id="step-start" aria-labelledby="start-title" hidden>
+              <div class="direct-step-heading"><span class="step-number">3</span><div><h2 id="start-title">邀约进度</h2><p id="start-count-label">任务已启动，进度和结果会在下方更新。</p></div></div>
+            </section>
+          </section>
+
+          <section class="invite-job-panel" id="invite-job-panel" aria-labelledby="job-title" hidden>
+            <div class="job-panel-heading"><div><h2 id="job-title">邀约进度</h2><p id="job-subtitle">—</p></div><div class="job-tools"><span class="job-status-badge" id="job-status-badge">—</span><button class="button button-secondary button-small" id="export-invite-job" type="button">导出任务</button></div></div>
+            <div class="legacy-job-notice" id="legacy-job-notice" hidden role="status">旧版邀约任务已停止，请重新设置。原任务结果仍可导出。</div>
+            <div class="job-runtime-error" id="job-runtime-error" hidden role="alert"></div>
+            <div class="job-progress"><div class="job-progress-track"><span id="job-progress-bar"></span></div><span id="job-progress-label">0 / 0</span></div>
+            <div class="job-summary" id="job-summary"></div>
+            <div class="job-results-toolbar">
+              <label class="field"><span>筛选结果</span><select id="job-results-filter"><option value="all">全部状态</option><option value="platform-success">平台确认成功</option><option value="manual-success">人工确认成功</option><option value="failed">失败</option><option value="unknown">结果未明</option><option value="pending">待处理</option><option value="skipped">已跳过</option></select></label>
+              <button class="button button-secondary button-small" id="export-invite-results" type="button">导出当前结果 CSV</button>
+            </div>
+            <div class="job-results-empty" id="job-results-empty" hidden role="status">此筛选下没有结果。</div>
+            <div class="job-result-list" id="job-result-list"></div>
+            <div class="job-excluded-list" id="job-excluded-list"></div>
+            <div class="job-actions" id="job-actions"></div>
+          </section>
+
+          <p class="invite-footer"><span aria-hidden="true">●</span> 邀约会按设定间隔逐位发送；运行中可暂停，结果不明时请先到平台核对。</p>
+        </div>
+      </main>
+    </div>
+    <div class="invite-toast-region" id="invite-toast-region" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="./auto-invite.mjs"></script>
+  </body>
+</html>

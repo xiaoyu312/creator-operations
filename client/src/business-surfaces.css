@@ -1,0 +1,560 @@
+.business-today-page,
+.business-tasks-page,
+.business-dashboard-page,
+.business-team-page {
+  min-width: 0;
+  gap: 14px;
+}
+
+.business-today-page > .page-heading,
+.business-tasks-page > .page-heading,
+.business-dashboard-page > .page-heading,
+.business-team-page > .page-heading {
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.business-today-page .page-heading-copy h1,
+.business-tasks-page .page-heading-copy h1,
+.business-dashboard-page .page-heading-copy h1,
+.business-team-page .page-heading-copy h1 {
+  color: #1d2939;
+  font-size: 24px;
+  letter-spacing: -0.025em;
+}
+
+.business-today-page .panel,
+.business-tasks-page .panel,
+.business-dashboard-page .panel,
+.business-team-page .panel {
+  border: 1px solid #e4e8ef;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.business-today-page .panel-heading,
+.business-tasks-page .panel-heading,
+.business-dashboard-page .panel-heading,
+.business-team-page .panel-heading {
+  padding: 15px var(--work-panel-inset, 16px) 10px;
+}
+
+.business-today-page .panel-heading h2,
+.business-tasks-page .panel-heading h2,
+.business-dashboard-page .panel-heading h2,
+.business-team-page .panel-heading h2 {
+  color: #1d2939;
+  font-size: 15px;
+  font-weight: 640;
+}
+
+.business-today-page .panel-heading p,
+.business-tasks-page .panel-heading p,
+.business-dashboard-page .panel-heading p,
+.business-team-page .panel-heading p {
+  color: #5f6c80;
+  font-size: 12px;
+}
+
+.business-today-page .page-grid.metrics-grid,
+.business-dashboard-page .page-grid.metrics-grid,
+.business-team-page .page-grid.metrics-grid {
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.business-today-page .metric-tile,
+.business-dashboard-page .metric-tile {
+  min-height: 100px;
+  padding: 14px 15px;
+  border-color: #e4e8ef;
+  border-radius: 10px;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.business-today-page .metric-tile:hover,
+.business-dashboard-page .metric-tile:hover {
+  border-color: #c8d6f3;
+  background: #fcfdff;
+}
+
+.business-today-page .metric-top,
+.business-dashboard-page .metric-top {
+  color: #5f6c80;
+  font-size: 13px;
+}
+
+.business-today-page .metric-value,
+.business-dashboard-page .metric-value {
+  margin-top: 9px;
+  color: #1d2939;
+  font-size: 23px;
+  font-variant-numeric: tabular-nums;
+}
+
+.business-today-page .metric-sub,
+.business-dashboard-page .metric-sub {
+  margin-top: 6px;
+  color: #69778b;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.business-today-page .today-start-panel {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px 18px;
+  padding: 17px 18px 14px;
+  border: 1px solid #e4e8ef;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.business-today-page .today-start-copy h2 {
+  margin: 0;
+  color: #1d2939;
+  font-size: 20px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.business-today-page .today-start-copy > p:last-child {
+  max-width: 62ch;
+  margin: 6px 0 0;
+  color: #5f6c80;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.business-today-page .onboarding-eyebrow {
+  color: #3563d8;
+  font-size: 12px;
+  font-weight: 620;
+}
+
+.business-today-page .today-start-action .button {
+  min-height: 40px;
+  border-radius: 6px;
+}
+
+.business-today-page .today-shortcuts {
+  gap: 7px;
+  padding-top: 10px;
+  border-top: 1px solid #edf0f4;
+}
+
+.business-today-page .onboarding-shortcuts-label {
+  color: #69778b;
+  font-size: 12px;
+}
+
+.business-today-page .onboarding-shortcut {
+  min-height: 32px;
+  padding: 0 9px;
+  border: 1px solid #e4e8ef;
+  border-radius: 6px;
+  color: #44536a;
+  background: #fff;
+  font-size: 12px;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.business-today-page .onboarding-shortcut:hover {
+  border-color: #cad8f5;
+  color: #2f56bf;
+  background: #f7f9ff;
+}
+
+.business-tasks-page .toolbar {
+  gap: 10px;
+  padding: 0 var(--work-panel-inset, 16px) 12px;
+}
+
+.business-tasks-page .toolbar .filter-select {
+  min-width: 190px;
+  min-height: 36px;
+  color: #344054;
+  font-size: 13px;
+}
+
+.business-tasks-page .table-result-count {
+  color: #69778b;
+  font-size: 12px;
+}
+
+.business-tasks-page .table-wrap,
+.business-team-page .table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.business-tasks-page .data-table th,
+.business-team-page .data-table th {
+  height: 42px;
+  color: #5f6c80;
+  background: #f7f9fc;
+  border-bottom-color: #e4e8ef;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.business-tasks-page .data-table td,
+.business-team-page .data-table td {
+  border-bottom-color: #edf0f4;
+  color: #344054;
+  font-size: 13px;
+}
+
+:is(.business-tasks-page, .business-team-page) .data-table :is(th, td):first-child {
+  padding-left: var(--work-panel-inset, 16px);
+}
+
+:is(.business-tasks-page, .business-team-page) .data-table :is(th, td):last-child {
+  padding-right: var(--work-panel-inset, 16px);
+}
+
+.business-tasks-page .data-table tbody tr:hover td,
+.business-team-page .data-table tbody tr:hover td {
+  background: #f8faff;
+}
+
+.business-tasks-page .page-bottom-note {
+  color: #69778b;
+  font-size: 12px;
+}
+
+.business-dashboard-page .dashboard-filters {
+  align-items: end;
+  gap: 10px;
+  padding: 0 16px 14px;
+  color: #5f6c80;
+  font-size: 13px;
+}
+
+.business-dashboard-page .dashboard-filters label {
+  gap: 6px;
+}
+
+.business-dashboard-page .dashboard-filters input,
+.business-dashboard-page .dashboard-filters select {
+  min-width: 132px;
+  height: 36px;
+  padding: 0 9px;
+  border-color: #d8dee8;
+  border-radius: 6px;
+  color: #344054;
+  background: #fff;
+  font-size: 13px;
+}
+
+.business-dashboard-page .dashboard-filters .button {
+  min-height: 36px;
+  border-radius: 6px;
+}
+
+.business-dashboard-page .refresh-hint {
+  display: block;
+  margin: -2px 16px 12px;
+  color: #69778b;
+  font-size: 12px;
+}
+
+.business-dashboard-page .notice-error {
+  margin: 0 16px 14px;
+}
+
+.business-dashboard-page .dashboard-grid-main,
+.business-dashboard-page .dashboard-grid-bottom {
+  min-width: 0;
+  gap: 12px;
+}
+
+.business-dashboard-page .dashboard-grid-main {
+  grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.85fr);
+}
+
+.business-dashboard-page .dashboard-grid-bottom {
+  grid-template-columns: minmax(0, 1.2fr) minmax(310px, 0.8fr);
+}
+
+.business-dashboard-page .chart-wrap {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.business-dashboard-page .chart-legend {
+  gap: 14px;
+  color: #5f6c80;
+  font-size: 12px;
+}
+
+.business-dashboard-page .funnel-list {
+  gap: 16px;
+}
+
+.business-dashboard-page .funnel-row-head,
+.business-dashboard-page .funnel-foot {
+  color: #5f6c80;
+  font-size: 13px;
+}
+
+.business-dashboard-page .funnel-row-head strong {
+  color: #344054;
+  font-size: 14px;
+}
+
+.business-dashboard-page .funnel-track {
+  height: 7px;
+  border-radius: 4px;
+  background: #edf1f7;
+}
+
+.business-dashboard-page .panel-inline-link {
+  color: #3563d8;
+  font-size: 12px;
+}
+
+.business-dashboard-page .attention-item {
+  min-height: 58px;
+  border-bottom-color: #edf0f4;
+}
+
+.business-dashboard-page .attention-item strong {
+  color: #344054;
+  font-size: 13px;
+}
+
+.business-dashboard-page .attention-item small {
+  color: #69778b;
+  font-size: 12px;
+}
+
+.business-dashboard-page .attention-item b {
+  color: #1d2939;
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+}
+
+.business-dashboard-page .attention-issues,
+.business-dashboard-page .rank-table-note {
+  color: #69778b;
+  font-size: 12px;
+}
+
+.business-team-page .team-metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.business-team-page .small-metric {
+  min-height: 82px;
+  gap: 8px;
+  padding: 13px 15px;
+  border-color: #e4e8ef;
+  border-radius: 10px;
+}
+
+.business-team-page .small-metric > span {
+  color: #5f6c80;
+  font-size: 13px;
+}
+
+.business-team-page .small-metric > strong {
+  color: #1d2939;
+  font-size: 23px;
+  font-variant-numeric: tabular-nums;
+}
+
+.business-team-page .team-table {
+  min-width: 820px;
+}
+
+.business-team-page .member-cell {
+  gap: 9px;
+}
+
+.business-team-page .member-cell strong {
+  color: #344054;
+  font-size: 13px;
+}
+
+.business-team-page .member-cell small,
+.business-team-page .table-secondary {
+  color: #69778b;
+  font-size: 12px;
+}
+
+.business-team-page .avatar-initial {
+  border-radius: 7px;
+  background: #edf3ff;
+  color: #3563d8;
+}
+
+.business-team-page .handoff-guide {
+  gap: 10px;
+  padding: 0 16px 16px;
+}
+
+.business-team-page .handoff-guide > div {
+  min-width: 0;
+  padding: 13px 14px;
+  border: 1px solid #e4e8ef;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.business-team-page .guide-number {
+  color: #3563d8;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.business-team-page .handoff-guide strong {
+  color: #344054;
+  font-size: 13px;
+}
+
+.business-team-page .handoff-guide p {
+  margin: 6px 0 0;
+  color: #69778b;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.business-today-page :focus-visible,
+.business-tasks-page :focus-visible,
+.business-dashboard-page :focus-visible,
+.business-team-page :focus-visible {
+  outline: 2px solid #3563d8;
+  outline-offset: 2px;
+}
+
+@media (max-width: 1100px) {
+  .business-dashboard-page .dashboard-grid-main,
+  .business-dashboard-page .dashboard-grid-bottom {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .business-team-page .team-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  :is(.business-today-page, .business-tasks-page, .business-dashboard-page, .business-team-page) > .page-heading {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  .business-today-page,
+  .business-tasks-page,
+  .business-dashboard-page,
+  .business-team-page {
+    gap: 11px;
+  }
+
+  .business-today-page .today-start-panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .business-today-page .today-start-copy h2 {
+    font-size: 18px;
+  }
+
+  .business-today-page .today-start-action {
+    justify-content: flex-start;
+  }
+
+  .business-today-page .page-grid.metrics-grid,
+  .business-dashboard-page .page-grid.metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .business-today-page .metric-tile,
+  .business-dashboard-page .metric-tile {
+    min-height: 96px;
+    padding: 12px;
+  }
+
+  .business-today-page .metric-value,
+  .business-dashboard-page .metric-value {
+    font-size: 21px;
+  }
+
+  .business-dashboard-page .dashboard-filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: end;
+    gap: 10px;
+    padding: 0 12px 12px;
+  }
+
+  .business-dashboard-page .dashboard-filters > span {
+    display: none;
+  }
+
+  .business-dashboard-page .dashboard-filters label,
+  .business-dashboard-page .dashboard-filters input,
+  .business-dashboard-page .dashboard-filters select {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .business-dashboard-page .dashboard-filters .button {
+    width: max-content;
+  }
+
+  .business-team-page .team-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .business-team-page .handoff-guide {
+    grid-template-columns: minmax(0, 1fr);
+    padding-right: var(--work-panel-inset, 16px);
+    padding-left: var(--work-panel-inset, 16px);
+  }
+
+  .business-tasks-page .toolbar {
+    padding-right: var(--work-panel-inset, 16px);
+    padding-left: var(--work-panel-inset, 16px);
+  }
+
+  .business-tasks-page .toolbar .filter-select {
+    min-width: 0;
+    width: min(100%, 280px);
+    min-height: 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  .business-today-page .metric-tile,
+  .business-dashboard-page .metric-tile {
+    padding: 10px;
+  }
+
+  .business-today-page .metric-top,
+  .business-dashboard-page .metric-top {
+    font-size: 12px;
+  }
+
+  .business-today-page .metric-value,
+  .business-dashboard-page .metric-value {
+    font-size: 19px;
+  }
+
+  .business-dashboard-page .dashboard-filters {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .business-today-page .metric-tile,
+  .business-dashboard-page .metric-tile,
+  .business-today-page .onboarding-shortcut {
+    transition: none;
+  }
+}

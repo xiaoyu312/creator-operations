@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "classification": "synthetic_demo",
+  "source_kind": "deterministic_generator",
+  "generated_by": "examples/generate-demo.ts",
+  "generator": "examples/generate-demo.ts",
+  "seed": "dabo-demo-2026-10-13-v1",
+  "contains_real_business_data": false,
+  "contains_credentials": false,
+  "contains_personal_data": false,
+  "destination": {
+    "service": "Local public-source candidate review; no upload performed",
+    "access_scope": "Local staging only; intended public source after final review"
+  },
+  "scope": "Bundled source, tests, and fixed fixtures. Platform adapters and browser extension may access user-authorized live services when explicitly configured or used; future runtime data is not covered by this manifest."
+}

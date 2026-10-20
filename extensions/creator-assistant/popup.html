@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>达人助手</title>
+    <link rel="stylesheet" href="./ui.css" />
+  </head>
+  <body class="popup-body" data-diagnostics-surface="popup">
+    <main class="popup-card" aria-labelledby="popup-title">
+      <header class="popup-heading">
+        <span class="brand-mark" aria-hidden="true">达</span>
+        <div><h1 id="popup-title">达人助手</h1><p>读取当前平台页面</p></div>
+      </header>
+      <section class="popup-source" id="popup-source" hidden>
+        <span class="source-platform-mark" id="popup-platform-mark" aria-hidden="true">达</span>
+        <div><strong id="popup-page-title">—</strong><span id="popup-page-url">—</span></div>
+      </section>
+      <div class="popup-feedback" id="popup-feedback" role="status" aria-live="polite">正在读取当前页面…</div>
+      <section class="popup-preview" id="popup-preview" hidden>
+        <div><span>候选达人</span><strong id="popup-count">0</strong></div>
+        <p id="popup-summary">读取此标签页本次加载的达人资料，预览后可一键收录。</p>
+      </section>
+      <div class="popup-actions">
+        <button class="button button-primary popup-save" id="popup-save-button" type="button" disabled>收录到本地达人库</button>
+        <button class="button button-secondary" id="popup-open-workbench" type="button">打开工作台</button>
+        <button class="button button-quiet button-small" id="popup-export-diagnostics-button" type="button">导出错误日志</button>
+      </div>
+      <div class="popup-diagnostics-feedback" id="popup-diagnostics-feedback" hidden role="status" aria-live="polite"></div>
+      <footer class="popup-footer"><span class="local-dot" aria-hidden="true"></span>数据保存在此浏览器</footer>
+    </main>
+    <script type="module" src="./popup.mjs"></script>
+  </body>
+</html>

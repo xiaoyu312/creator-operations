@@ -1,0 +1,87 @@
+.platform-switch {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 24px;
+  min-width: 0;
+  overflow: auto hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #c7d2e6 transparent;
+}
+.platform-switch-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  gap: 8px;
+  min-height: 50px;
+  padding: 0 4px;
+  border: 0;
+  color: var(--work-secondary);
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.platform-switch-button:hover { color: var(--reference-primary, #2d5bd1); }
+.platform-switch-button:focus-visible { outline: 2px solid var(--reference-primary); outline-offset: -2px; border-radius: 5px; }
+.platform-switch-button.is-active { color: var(--reference-primary, #2d5bd1); font-weight: 650; }
+.platform-switch--line { border-bottom: 1px solid #edf0f6; }
+.platform-switch--line .platform-switch-button.is-active::after {
+  position: absolute;
+  right: 3px;
+  bottom: 0;
+  left: 3px;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--reference-primary, #2d5bd1);
+  content: '';
+}
+.platform-brand-mark { display: inline-grid; place-items: center; flex: 0 0 auto; width: 23px; height: 23px; border-radius: 6px; }
+.platform-brand-mark svg { display: block; width: 21px; height: 21px; }
+.platform-brand-mark[data-platform='douyin'] { color: #fff; background: #171820; }
+.platform-brand-mark[data-platform='kuaishou'] { color: #fff; background: #ff6728; }
+.platform-brand-mark[data-platform='channels'] { color: #fff; background: #f1a047; }
+.platform-brand-mark[data-platform='xiaohongshu'] { color: #fff; background: #f34760; }
+.platform-brand-mark[data-platform='all'] { color: inherit; }
+.platform-xhs-wordmark { font-size: 7px; font-weight: 700; letter-spacing: -.6px; }
+.platform-switch--pill { flex-wrap: wrap; gap: 10px; padding: 4px 2px 8px; overflow: visible; }
+.platform-switch--pill .platform-switch-button { min-height: 40px; padding: 0 14px; gap: 6px; border-radius: 26px; border: 1px solid var(--work-border); color: var(--work-secondary); background: #fff; }
+.platform-switch--pill .platform-switch-button:hover { border-color: var(--reference-primary); background: #f2f6ff; }
+.platform-switch--pill .platform-brand-mark,
+.platform-switch--segment .platform-brand-mark { width: 16px; height: 16px; border-radius: 4px; }
+.platform-switch--pill .platform-brand-mark svg,
+.platform-switch--segment .platform-brand-mark svg { width: 14px; height: 14px; }
+.platform-switch--pill .platform-brand-mark[data-platform='douyin'],
+.platform-switch--segment .platform-brand-mark[data-platform='douyin'] { color: #fff; background: #171820; }
+.platform-switch--pill .platform-brand-mark[data-platform='kuaishou'],
+.platform-switch--segment .platform-brand-mark[data-platform='kuaishou'] { color: #fff; background: #ff6728; }
+.platform-switch--pill .platform-brand-mark[data-platform='channels'],
+.platform-switch--segment .platform-brand-mark[data-platform='channels'] { color: #fff; background: #f1a047; }
+.platform-switch--pill .platform-brand-mark[data-platform='xiaohongshu'],
+.platform-switch--segment .platform-brand-mark[data-platform='xiaohongshu'] { color: #fff; background: #f34760; }
+.platform-switch--pill .platform-brand-mark[data-platform='all'],
+.platform-switch--segment .platform-brand-mark[data-platform='all'] { width: 16px; height: 16px; color: currentColor; background: transparent; }
+.platform-switch--pill .platform-brand-mark[data-platform='all'] svg,
+.platform-switch--segment .platform-brand-mark[data-platform='all'] svg { width: 16px; height: 16px; }
+.platform-switch--pill .platform-xhs-wordmark,
+.platform-switch--segment .platform-xhs-wordmark { font-size: 5px; letter-spacing: -.45px; line-height: 1; }
+.platform-switch--pill .platform-switch-button.is-active { border-color: var(--reference-primary); color: var(--reference-primary); background: var(--reference-primary-soft); box-shadow: none; }
+.platform-switch--pill .platform-switch-button.is-active .platform-brand-mark[data-platform='douyin'] { color: #fff; background: #171820; }
+.platform-switch--pill .platform-switch-button.is-active .platform-brand-mark[data-platform='kuaishou'] { color: #fff; background: #ff6728; }
+.platform-switch--pill .platform-switch-button.is-active .platform-brand-mark[data-platform='channels'] { color: #fff; background: #f1a047; }
+.platform-switch--pill .platform-switch-button.is-active .platform-brand-mark[data-platform='xiaohongshu'] { color: #fff; background: #f34760; }
+.platform-switch--pill .platform-switch-button.is-active .platform-brand-mark[data-platform='all'] { color: var(--reference-primary); background: transparent; }
+@media (width <= 640px) {
+  .platform-switch,
+  .platform-switch--pill { flex-wrap: wrap; overflow: visible; gap: 8px; }
+  .platform-switch { gap: 15px; }
+  .platform-switch-button { min-height: 46px; gap: 6px; font-size: 13px; }
+  .platform-switch--line { justify-content: space-between; gap: 4px; }
+  .platform-switch--line .platform-switch-button { gap: 4px; padding: 0; font-size: 12px; }
+  .platform-switch--pill { gap: 8px; }
+  .platform-switch--pill .platform-switch-button { min-height: 44px; padding: 0 12px; }
+  .platform-brand-mark { width: 21px; height: 21px; }
+}

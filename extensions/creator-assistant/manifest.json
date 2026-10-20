@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "达人助手 · 本地版",
+  "version": "0.3.0",
+  "minimum_chrome_version": "120",
+  "description": "从已登录的达人平台收录当前页面资料，在本机管理跟进、联系方式、筛选书签与邀约草稿。无需插件账号。",
+  "permissions": ["storage", "activeTab", "scripting", "alarms", "cookies"],
+  "host_permissions": ["https://buyin.jinritemai.com/*", "https://cps.kwaixiaodian.com/*", "https://pgy.xiaohongshu.com/*", "https://channels.weixin.qq.com/*", "https://store.weixin.qq.com/*"],
+  "background": {"service_worker": "background.mjs", "type": "module"},
+  "action": {"default_popup": "popup.html", "default_title": "达人助手"},
+  "options_page": "app.html",
+  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none';"},
+  "content_scripts": [
+    {
+      "matches": ["https://buyin.jinritemai.com/*", "https://cps.kwaixiaodian.com/*", "https://pgy.xiaohongshu.com/*", "https://channels.weixin.qq.com/*", "https://store.weixin.qq.com/*"],
+      "js": ["capture-main.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://buyin.jinritemai.com/*", "https://cps.kwaixiaodian.com/*", "https://pgy.xiaohongshu.com/*", "https://channels.weixin.qq.com/*", "https://store.weixin.qq.com/*"],
+      "js": ["adapters.js", "content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
