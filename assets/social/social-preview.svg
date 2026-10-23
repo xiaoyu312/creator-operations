@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title description">
+  <title id="title">Creator Operations — Creator outreach &amp; team coordination.</title>
+  <desc id="description">Original social sharing artwork by xiaoyu312: three connected geometric nodes representing coordination, without a user interface or personal records. This is abstract artwork, not a product screenshot.</desc>
+  <!-- Brand palette: cream #F5F2EB, cobalt #2452CF, navy #1B2D60, orange #F2A15F. -->
+  <rect width="1280" height="640" fill="#F5F2EB"/>
+  <rect x="28" y="28" width="1224" height="584" fill="none" stroke="#DDD8CE" stroke-width="2"/>
+  <!-- Shared alignment edge and safe margin: x=88; all text stays inside 64px. -->
+  <rect x="88" y="90" width="38" height="6" rx="3" fill="#2452CF"/>
+  <text x="146" y="103" font-family="Arial" font-size="23" font-weight="bold" fill="#2452CF">EXPERIMENTAL SOURCE</text>
+  <text x="88" y="236" font-family="Arial" font-size="90" font-weight="bold" fill="#1B2D60">Creator</text>
+  <text x="88" y="328" font-family="Arial" font-size="90" font-weight="bold" fill="#1B2D60">Operations</text>
+  <text x="92" y="409" font-family="Arial" font-size="36" fill="#1B2D60">Creator outreach &amp;</text>
+  <text x="92" y="455" font-family="Arial" font-size="36" fill="#1B2D60">team coordination.</text>
+  <rect x="88" y="528" width="6" height="32" rx="3" fill="#2452CF"/>
+  <text x="110" y="554" font-family="Arial" font-size="29" font-weight="bold" fill="#1B2D60">xiaoyu312</text>
+  <!-- Original abstract motif; no UI or business data. -->
+  <g aria-hidden="true">
+    <circle cx="994" cy="307" r="176" fill="#E4E9F7"/>
+    <path d="M902 224L1098 264L998 421Z" fill="none" stroke="#2452CF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="902" cy="224" r="55" fill="#2452CF"/>
+    <circle cx="1098" cy="264" r="52" fill="#F5F2EB" stroke="#1B2D60" stroke-width="4"/>
+    <rect x="953" y="375" width="92" height="92" rx="22" fill="#F2A15F" transform="rotate(9 999 421)"/>
+    <circle cx="995" cy="310" r="24" fill="#F5F2EB" stroke="#1B2D60" stroke-width="4"/>
+    <path d="M809 466H952" fill="none" stroke="#2452CF" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="809" cy="466" r="11" fill="#F2A15F"/>
+    <circle cx="1159" cy="148" r="15" fill="#F2A15F"/>
+    <path d="M829 139V161M818 150H840" fill="none" stroke="#2452CF" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>
