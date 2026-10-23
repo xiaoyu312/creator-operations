@@ -1,6 +1,10 @@
-# 达人助手 0.3.0 · 源代码候选
+[简体中文](README.md) · [English](README.en.md) · [日本語](README.ja.md)
 
-[English](README.en.md)
+# 达人助手 0.3.0 · Creator Assistant
+
+**从有权访问的平台页面收录达人，在浏览器本地整理跟进与邀约草稿。**
+
+源代码候选；浏览器与真实平台流程尚未完成验收。
 
 作者：xiaoyu312 · [FateClear — 免费的生日排盘与解读网站](https://fateclear.com) · [X — 作者项目与更新](https://x.com/liu_xiaoyu27334)
 
@@ -8,7 +12,30 @@
 
 本候选保留原扩展功能，不含真实联系人、任务、登录态或历史备份。首次使用为空状态。原完整达播中台不是运行本扩展的前提。
 
-## 构建与测试
+## 先看未发送的合成草稿
+
+已有完整仓库副本和 Node.js 24 后，在当前扩展目录运行：
+
+```sh
+node ../../examples/assistant-demo.mjs
+```
+
+[示例源码](../../examples/assistant-demo.mjs)使用本扩展的核心模块，输入 2 位虚构达人并生成 2 条未发送草稿。以下为源码和断言对应的预期输出，本轮文档整理没有执行该命令：
+
+```json
+{
+  "mode": "synthetic-only",
+  "creators": 2,
+  "unsentDrafts": 2,
+  "network": "none",
+  "browser": "not opened",
+  "persisted": false
+}
+```
+
+这个独立示例不打开浏览器、不访问网络、不保存记录、不发送邀约；完整扩展的真实邀约行为与权限见下文。
+
+## 构建与安装
 
 Node.js 24，无 npm 依赖。
 
@@ -32,8 +59,19 @@ node --test tests/*.test.mjs
 
 ## 验证范围
 
+源码准备阶段的历史记录为 164 项扩展测试通过。本轮只整理文档并做静态检查，没有重新执行测试或构建。
+
 收入的 Node 单元测试使用模拟 DOM、Chrome API、fetch 和存储。移除了一个依赖原私有历史 ZIP 的兼容性测试，以及启动浏览器的历史脚本。没有重新验证真实平台页面、联系人查询、真实发送、商店发布或 Windows。
 
-MIT 适用于用户拥有的实现。平台标识、协议和第三方产品仍受各自权利约束；许可范围见根目录 LICENSE-STATUS.md。
+## 详细说明与源码入口
+
+- [Creator Operations 主工作台](../../README.md)：可独立运行的主应用、源码范围与可选集成。
+- [扩展声明](manifest.json)：版本、浏览器最低版本声明与权限。
+- [构建脚本](build.mjs)与[核心模块](lib/core.mjs)：本地构建和记录、筛选、草稿逻辑。
+- [模拟测试](tests/)：测试覆盖的具体行为与边界。
+
+## 许可
+
+MIT 适用于用户拥有的实现。平台标识、协议和第三方产品仍受各自权利约束；见根目录[许可范围](../../LICENSE-STATUS.md)和[第三方声明](../../THIRD_PARTY_NOTICES.md)。
 
 欢迎试试作者的 [FateClear — 免费的生日排盘与解读网站](https://fateclear.com)，或在 [X](https://x.com/liu_xiaoyu27334) 关注更多项目与更新。

@@ -1,6 +1,8 @@
+[简体中文](README.md) · [English](README.en.md) · [日本語](README.ja.md)
+
 # 达播管理中台 · Creator Operations
 
-[English](README.en.md)
+**把达人建联、合作进度与团队协作放进同一个电商工作台。**
 
 作者：xiaoyu312 · [FateClear — 免费的生日排盘与解读网站](https://fateclear.com) · [X — 作者项目与更新](https://x.com/liu_xiaoyu27334)
 
@@ -8,7 +10,30 @@
 
 **默认运行是本机合成演示，重启重置。** 不含真实工作簿、客户联系人、订单、账号、密钥或私有素材。真实平台适配源保留为可选集成；本包不是已经验证的企业生产部署。
 
-## 先运行主工作台
+## 先看一份合成示例
+
+已有仓库副本和 Node.js 24 或更新版本后，可先在仓库根目录运行以下独立示例，无需安装应用依赖：
+
+```sh
+npm run demo:assistant
+```
+
+[示例源码](examples/assistant-demo.mjs)创建 2 位虚构达人，再生成 2 条未发送的邀约草稿。下面是根据源码和断言列出的预期输出，本轮文档整理没有执行该命令：
+
+```json
+{
+  "mode": "synthetic-only",
+  "creators": 2,
+  "unsentDrafts": 2,
+  "network": "none",
+  "browser": "not opened",
+  "persisted": false
+}
+```
+
+此示例不启动浏览器、不请求网络、不持久化记录，也不发送邀约；它展示的是独立达人助手的草稿流程。主工作台另有[合成 API 示例](examples/demo.ts)与[固定种子生成器](examples/generate-demo.ts)，完整应用的安装及验证范围见下文。
+
+## 运行主工作台
 
 要求 Node.js 24 或更新版本。使用者安装依赖后：
 
@@ -47,7 +72,7 @@ npm start
 
 ## 达人助手
 
-[达人助手中文说明](extensions/creator-assistant/README.md) · [English](extensions/creator-assistant/README.en.md)
+[简体中文](extensions/creator-assistant/README.md) · [English](extensions/creator-assistant/README.en.md) · [日本語](extensions/creator-assistant/README.ja.md)
 
 ```sh
 npm run build:assistant
@@ -62,7 +87,7 @@ npm run test:assistant
 
 默认主工作台不加载真实平台资料，不开放生产成员邀请。原平台品牌、工作簿和成员页面保留为条件分支；`VITE_ENABLE_PLATFORM_INTEGRATIONS` 默认 `false`，文档地址与资料 SDK 地址默认空。浏览器可见的 `VITE_*` 变量不得填密钥。
 
-真实接入需要部署者提供可信认证与 CSRF 中间件、组织／应用 ID、服务端角色映射、CSV 预览签名密钥、工作簿令牌与品牌 registry、数据库 schema／RPC 迁移和平台岗位 SDK。可选模块必须在自己的生产入口里组装并注入这些配置。**完整企业 AppModule、工作簿持久化服务和数据库迁移没有收入**；不能仅打开一个开关就声称完成生产接入，也不能用浏览器传来的身份替代服务端验证。具体接口范围见 [后端说明](server/README.md)。
+真实接入需要部署者提供可信认证与 CSRF 中间件、组织／应用 ID、服务端角色映射、CSV 预览签名密钥、工作簿令牌与品牌 registry、数据库 schema／RPC 迁移和平台岗位 SDK。可选模块必须在自己的生产入口里组装并注入这些配置。**完整企业 AppModule、工作簿持久化服务和数据库迁移没有收入**；不能仅打开一个开关就声称完成生产接入，也不能用浏览器传来的身份替代服务端验证。具体接口范围见 [后端说明（中文）](server/README.md)。
 
 `@lark-apaas/client-toolkit@1.2.74` 用于构建保留的平台页面，已确认该版本存在于官方公开 npm registry；默认本地页面不触发它的真实平台流程。可选服务端依赖使用 optional peer 声明。所有 SDK 按自身条款使用，没有被改许可或捆绑实现。
 
@@ -77,13 +102,20 @@ npm run demo:assistant
 npm run generate:demo
 ```
 
-本次在禁止网络和监听端口的本地检查环境中，主应用 **154 项**测试、达人助手 **164 项**测试通过；前端实际 Vite 配置完成构建，前后端类型检查通过。验证使用原项目已安装依赖的只读解析；没有安装依赖、启动浏览器或真实服务。
+源码准备阶段的历史记录：在禁止网络和监听端口的本地检查环境中，主应用 **154 项**测试、达人助手 **164 项**测试通过；前端实际 Vite 配置完成构建，前后端类型检查通过。当时的验证使用原项目已安装依赖的只读解析，没有安装依赖、启动浏览器或真实服务。本轮仅整理三语文档并做静态检查，没有重新执行这些测试、构建或类型检查。
 
 - 未验证干净环境 `npm install`，未生成新锁文件；直接版本固定，间接依赖仍可能变化。
 - 主前端构建有较大 chunk 提示，后续可继续拆包；尚无浏览器交互、视觉、性能或 Windows 实机验收。
 - 真正的登录、平台资料查询、邀请送达、数据库迁移／RPC 和生产部署未验证。
 - 部分测试包含明显人工构造的假令牌、电话号码与长整数，用于测试过滤、精度与拒绝逻辑；不是运行凭据。
 - 运行后导入的数据、导出文件、浏览器存储和备份由使用者保管，不应提交到源码仓库。
+
+## 详细说明与源码入口
+
+- [运行命令与依赖声明](package.json)：Node.js 要求、开发、构建、测试与演示脚本。
+- [后端范围说明（中文）](server/README.md)：本地演示边界和可选生产模块所需条件。
+- [合成种子](shared/seed.ts)与[演示生成器](examples/generate-demo.ts)：初始记录的来源。
+- [独立达人助手](extensions/creator-assistant/README.md)：安装、平台权限、真实邀约与本地资料保管。
 
 ## 许可
 
